@@ -28,6 +28,7 @@ function copy_qhm_files($source, $dist)
     $base_path = '';
     $index = 0;
 
+    $htaccess_path = '';
     foreach ($files as $file)
     {
         // 最初のパス（qhm-master）は基準として使う
@@ -42,14 +43,28 @@ function copy_qhm_files($source, $dist)
                 \A\.htaccess\z
             /x';
             if (preg_match($exclude_ptn, $relative_path)) {
+                $htaccess_path = $file->getPathname();
                 continue;
             }
 
             if ($file->isDir()) {
-                mkdir($dist . '/' . $relative_path);
+                $path = $dist . '/' . $relative_path;
+                if ( ! file_exists($path))
+                    mkdir($path);
             } else {
                 copy($file_path, $dist . '/' . $relative_path);
             }
+        }
+    }
+
+    // .htaccess を追記する
+    if ($htaccess_path) {
+        if (file_exists('.htaccess')) {
+            file_put_contents('.htaccess',
+                file_get_contents('.htaccess') . "\n" .
+                file_get_contents($htaccess_path));
+        } else {
+            copy($htaccess_path, '.htaccess');
         }
     }
 
