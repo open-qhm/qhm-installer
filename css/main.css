@@ -208,6 +208,22 @@ header .header-content .header-content-inner p {
     color: rgba(255,255,255,.7);
 }
 
+header .alert {
+  text-align: left;
+  margin: 15px auto 30px;
+  line-height: 1.8em;
+}
+
+header .alert code {
+  color: inherit;
+  font-weight: bold;
+}
+
+header .progress-container {
+  margin: 30px auto auto;
+  visibility: hidden;
+}
+
 @media(min-width:768px) {
     header .header-content {
         position: absolute;
@@ -232,14 +248,11 @@ header .header-content .header-content-inner p {
     }
 
     header .alert {
-      text-align: left;
       width: 50%;
-      margin: 15px auto 30px;
-      line-height: 1.8em;
     }
-    header .alert code {
-      color: inherit;
-      font-weight: bold;
+
+    header .progress-container {
+      width: 50%;
     }
 }
 
