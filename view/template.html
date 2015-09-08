@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>インストーラー - haik: QHM v6</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?php echo h($location)?>">haik: QHM v6</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="http://www.open-qhm.net/" target="_blank">Tutorial</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>haik: QHM v6<span class="visible-xs-inline"><br></span> インストーラー</h1>
+                <hr>
+                <p>
+                  ここに haik: QHM v6 をインストールします。
+                </p>
+                <?php if ($env['enable']): ?>
+                  <button type="button" id="install" class="btn btn-primary btn-xl">インストールする</button>
+                <?php else: ?>
+                  <div class="alert alert-danger">
+                    <?php if ( ! $env['writable']): ?>
+                      <i class="fa fa-exclamation"></i> <code><?php echo h(INSTALL_DIR) ?></code>
+                      に書き込みができません。<br>
+                    <?php endif?>
+                    <?php if ( ! $env['allow_url_fopen']): ?>
+                      <i class="fa fa-exclamation"></i> PHP設定 <code>allow_url_fopen</code>
+                      を有効にしてください。<br>
+                    <?php endif ?>
+                    <?php if ( ! $env['unzip_strategy']): ?>
+                      <i class="fa fa-exclamation"></i> Zip ファイルの解凍ができません。
+                    <?php endif ?>
+                  </div>
+                  <button type="button" class="btn btn-default btn-xl disabled">インストールできません</button>
+                <?php endif ?>
+            </div>
+        </div>
+    </header>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+    InstallerData = <?php echo $data_json?>;
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
