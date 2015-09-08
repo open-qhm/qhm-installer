@@ -10,13 +10,24 @@ function install_qhm()
 {
     $env = get_environment();
     if ( ! $env['enable']) {
-        return false;
+        response_json(array(
+            'error'   => true,
+            'message' => 'インストールできません',
+        ));
     }
+    if (DEVELOPMENT) {
+        sleep(3);
+        response_json(array(
+            'message'  => 'インストール成功（デバッグモード）',
+            'redirect' => rtrim($env['path'], '/') . '/index.php',
+        ));
+    }
+
     # 最新版の Zip ファイルをダウンロード
     $file_path = get_qhm_archive();
 
     # 展開
-    $dist = DEVELOPMENT ? 'test' : '.';
+    $dist = '.';
     $extract_path = unzip_qhm($file_path);
     $result = copy_qhm_files($extract_path, $dist);
 
@@ -27,7 +38,7 @@ function install_qhm()
     $data = array();
     if ($result) {
         $data['message'] = 'インストールに成功しました';
-        $data['redirect'] = '/index.php';
+        $data['redirect'] = rtrim($env['path'], '/') . '/index.php';
     } else {
         $data['error'] = true;
         $data['message'] = 'インストールできませんでした';
@@ -38,9 +49,9 @@ function install_qhm()
 function delete_self()
 {
     if ( ! DEVELOPMENT) {
+        # 自分自信を削除
         unlink(__FILE__);
     }
-    # 自分自信を削除
     exit;
 }
 
