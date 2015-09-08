@@ -2,27 +2,37 @@
 
 haik (QHM v6) を簡単にインストールできます。
 
-## インストール
 
-1. install.php をサーバーの公開フォルダへ設置
-2. ブラウザで、設置した install.php へアクセス
+## インストーラーのビルド
+
+下記スクリプトを実行し、 `install.php` を生成してください。
+
+```base
+$ bin/build.php
+# => built/install.php が生成される
+```
+
+## QHMのインストール手順
+
+1. `install.php` をサーバーの公開フォルダへ設置
+2. ブラウザで、設置した `install.php` へアクセス
 例） `http://example.jp/install.php`
 3. 画面の支持に従い、インストールを行う
-4. haik の初期画面が表示されたら成功
+4. QHMの初期画面が表示されれば成功
+
 
 ## 開発
 
 開発時は `index.php` を使う。
 
 `bin/build.php` を実行することで `require` と `include` 先を展開し、
-一つのPHPスクリプト `install.php` として保存される。
-
-作られた `install.php` はコミットすること。
+一つのPHPスクリプト `install.php` として `built` ディレクトリへ保存される。
 
 1. 何らかの改良
 2. `$ bin/build.php`
-3. `install.php` をコミット
-4. `origin/master` へプッシュ
+3. `built/install.php` が生成される
+4. テスト
+
 
 ### ビルドスクリプトについて
 

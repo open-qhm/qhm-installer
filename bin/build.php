@@ -43,6 +43,15 @@ function expand_js($path)
 }
 
 $main_file = 'index.php';
+$build_dir = 'built';
+$file_name = 'install.php';
+$build_to  = "{$build_dir}/{$file_name}";
+
+if (file_exists($build_dir)) {
+    shell_exec("rm -rf {$build_dir}");
+}
+mkdir($build_dir);
+
 $processes = explode("\n", file_get_contents($main_file));
 
 $built = array();
@@ -70,5 +79,5 @@ foreach ($processes as $process)
     }
 }
 
-file_put_contents('install.php', join("\n", $built));
-echo shell_exec('php -l install.php');
+file_put_contents($build_to, join("\n", $built));
+echo shell_exec("php -l {$build_to}");
