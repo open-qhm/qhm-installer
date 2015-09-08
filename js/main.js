@@ -20,7 +20,7 @@
     var interval = setInterval(function(){
       progress += Math.ceil(Math.random() * 10);
       setProgress(progress);
-    }, 500);
+    }, 600);
 
     $(this).prop("disabled", true).off("click");
 
