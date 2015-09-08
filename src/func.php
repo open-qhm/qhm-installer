@@ -92,13 +92,27 @@ function get_environment()
     static $env;
     if (isset($env)) return $env;
 
+    // Environment
+    $env['path'] = ($_SERVER['SERVER_PORT'] == 443 ? 'https' : 'http') . '://'
+                 . $_SERVER['SERVER_NAME']
+                 . (in_array($_SERVER['SERVER_PORT'], array(80, 443)) ? '' : ":{$_SERVER['SERVER_PORT']}")
+                 . dirname($_SERVER['SCRIPT_NAME']);
+
+    // MUST
     $env['writable']        = is_writable(INSTALL_DIR);
     $env['allow_url_fopen'] = ini_get('allow_url_fopen');
     $env['unzip_strategy']  = (unzip_strategy() !== '');
+    $env['is_empty']        = DEVELOPMENT || ! file_exists('index.php');
+
+    // SHOULD
+    $env['has_static_site'] = file_exists('index.html');
+
+    $env['warning'] = $env['has_static_site'];
 
     $env['enable'] = $env['writable']
                   && $env['allow_url_fopen']
-                  && $env['unzip_strategy'];
+                  && $env['unzip_strategy']
+                  && $env['is_empty'];
     return $env;
 }
 

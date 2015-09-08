@@ -237,6 +237,10 @@ header .header-content .header-content-inner p {
       margin: 15px auto 30px;
       line-height: 1.8em;
     }
+    header .alert code {
+      color: inherit;
+      font-weight: bold;
+    }
 }
 
 .btn-default {

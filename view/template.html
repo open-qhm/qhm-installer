@@ -61,11 +61,26 @@
                 <h1>haik: QHM v6<span class="visible-xs-inline"><br></span> インストーラー</h1>
                 <hr>
                 <p>
-                  ここに haik: QHM v6 をインストールします。
+                  <code><?php echo h($env['path']) ?></code>
+                  に haik: QHM v6 をインストールします。
                 </p>
                 <?php if ($env['enable']): ?>
+
+                  <?php if ($env['warning']): ?>
+                    <div class="alert alert-warning">
+                      <?php if ($env['has_static_site']): ?>
+                        <i class="fa fa-exclamation"></i> <code>index.html</code>
+                        ファイルが存在します。
+                        不要なファイルであれば削除、
+                        あるいは <code>_index.html</code> へリネームをしてください。<br>
+                      <?php endif ?>
+                    </div>
+                  <?php endif ?>
+
                   <button type="button" id="install" class="btn btn-primary btn-xl">インストールする</button>
+
                 <?php else: ?>
+
                   <div class="alert alert-danger">
                     <?php if ( ! $env['writable']): ?>
                       <i class="fa fa-exclamation"></i> <code><?php echo h(INSTALL_DIR) ?></code>
@@ -76,10 +91,14 @@
                       を有効にしてください。<br>
                     <?php endif ?>
                     <?php if ( ! $env['unzip_strategy']): ?>
-                      <i class="fa fa-exclamation"></i> Zip ファイルの解凍ができません。
+                      <i class="fa fa-exclamation"></i> Zip ファイルの解凍ができません。<br>
+                    <?php endif ?>
+                    <?php if ( ! $env['is_empty']): ?>
+                      <i class="fa fa-exclamation"></i> 既にPHPアプリケーションがインストールされています。
                     <?php endif ?>
                   </div>
                   <button type="button" class="btn btn-default btn-xl disabled">インストールできません</button>
+
                 <?php endif ?>
             </div>
         </div>
