@@ -13,9 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="css/main.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -28,88 +26,81 @@
 </head>
 
 <body id="page-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top haik-navbar">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <a class="navbar-brand" href="<?php echo h($location)?>">haik</a>
+      <ul class="nav navbar-nav pull-right">
+        <li>
+          <a href="http://www.open-qhm.net/" target="_blank">Tutorial</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="<?php echo h($location)?>">haik: QHM v6</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="http://www.open-qhm.net/" target="_blank">Tutorial</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1>haik: QHM v6<span class="visible-xs-inline"><br></span> インストーラー</h1>
-                <hr>
-                <p>
-                  <code><?php echo h($env['path']) ?></code>
-                  に haik: QHM v6 をインストールします。
-                </p>
-                <?php if ($env['enable']): ?>
-
-                  <?php if ($env['warning']): ?>
+    <header class="haik-header">
+      <div class="haik-content">
+        <div class="haik-content-inner">
+          <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+              <h1>haik インストーラー</h1>
+              <h2>haik をインストールします</h2>
+              <p>
+                インストールを開始するをクリックすると、<br>
+                haik を <code class="haik-install-url"><?php echo h($env['path']) ?></code> にインストールします
+              </p>
+              <?php if ($env['enable']): ?>
+                <?php if ($env['warning']): ?>
+                  <?php if ($env['has_static_site']): ?>
                     <div class="alert alert-warning">
-                      <?php if ($env['has_static_site']): ?>
-                        <i class="fa fa-exclamation"></i> <code>index.html</code>
-                        ファイルが存在します。
-                        不要なファイルであれば削除、
-                        あるいは <code>_index.html</code> へリネームをしてください。<br>
-                      <?php endif ?>
+                      <i class="fa fa-exclamation-triangle"></i> 
+                      <code>index.html</code> ファイルが存在します。<br>
+                      <br>
+                      不要なファイルであれば削除、<br>
+                      あるいは <code>_index.html</code> へ名前を変更してください。<br>
                     </div>
                   <?php endif ?>
+                <?php endif ?>
+                <div>
+                  <button type="button" id="install" class="btn btn-primary btn-lg block center-block">インストールを開始する</button>
+                  <small>( haik : QHM v6 )</small>
+                </div>
 
-                  <button type="button" id="install" class="btn btn-primary btn-xl">インストールする</button>
-
-                  <div class="progress-container" id="progress">
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                        <span class="sr-only">0% Complete</span>
-                      </div>
+                <div class="progress-container haik-progress" id="progress">
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                      <span class="sr-only">0% Complete</span>
                     </div>
                   </div>
+                </div>
 
-                <?php else: ?>
-
-                  <div class="alert alert-danger">
-                    <?php if ( ! $env['writable']): ?>
-                      <i class="fa fa-exclamation"></i> <code><?php echo h(INSTALL_DIR) ?></code>
-                      に書き込みができません。<br>
-                    <?php endif?>
-                    <?php if ( ! $env['allow_url_fopen']): ?>
-                      <i class="fa fa-exclamation"></i> PHP設定 <code>allow_url_fopen</code>
-                      を有効にしてください。<br>
-                    <?php endif ?>
-                    <?php if ( ! $env['unzip_strategy']): ?>
-                      <i class="fa fa-exclamation"></i> Zip ファイルの解凍ができません。<br>
-                    <?php endif ?>
-                    <?php if ( ! $env['is_empty']): ?>
-                      <i class="fa fa-exclamation"></i> 既にPHPアプリケーションがインストールされています。
-                    <?php endif ?>
-                  </div>
-                  <button type="button" class="btn btn-default btn-xl disabled">インストールできません</button>
-
-                <?php endif ?>
+              <?php else: ?>
+                <div class="alert alert-danger">
+                  <?php if (! $env['writable']): ?>
+                    <i class="fa fa-exclamation-triangle"></i> <code><?php echo h(INSTALL_DIR) ?></code>
+                    に書き込みができません。<br>
+                  <?php endif?>
+                  <?php if ( ! $env['allow_url_fopen']): ?>
+                    <i class="fa fa-exclamation-triangle"></i> PHP設定 <code>allow_url_fopen</code>
+                    を有効にしてください。<br>
+                  <?php endif ?>
+                  <?php if ( ! $env['unzip_strategy']): ?>
+                    <i class="fa fa-exclamation-triangle"></i> Zip ファイルの解凍ができません。<br>
+                  <?php endif ?>
+                  <?php if ( ! $env['is_empty']): ?>
+                    <i class="fa fa-exclamation-triangle"></i> 既にPHPアプリケーションがインストールされています。
+                  <?php endif ?>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-primary btn-lg disabled center-block">インストールできません</button>
+                  <small>( haik : QHM v6 )</small>
+                <div>
+              <?php endif ?>
             </div>
+          </div>
         </div>
+      </div>
     </header>
 
     <!-- jQuery -->

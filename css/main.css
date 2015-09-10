@@ -1,400 +1,133 @@
-/*!
- * Start Bootstrap - Creative Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+/**
+ *   haik installer
+ *
+ *   Copyright (c) 2015 hokuken
+ *   http://www.open-qhm.net/
+ *
+ *   created  : 2015-09-09
+ *   modified :
+ *
+ *   Description
+ *
+ *   Usage :
+ *
  */
 
 html,
 body {
     width: 100%;
     height: 100%;
+    color: #8b8b8b;
+    letter-spacing: .5px;
 }
 
 body {
     font-family: "Open Sans","ヒラギノ角ゴ ProN","Hiragino Kaku Gothic ProN","メイリオ","Meiryo","MS ゴシック","MS Gothic","MS Pゴシック","MS PGothic",sans-serif;
 }
 
-hr {
-    max-width: 50px;
-    border-color: #f05f40;
-    border-width: 3px;
+
+.haik-navbar {
+  border-color: rgba(34,34,34,.05);
+  background-color: #fff;
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
 }
 
-hr.light {
-    border-color: #fff;
+.haik-navbar .navbar-brand {
+  color: #BABABA;
 }
 
-a {
-    color: #f05f40;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
+.haik-navbar .navbar-brand:hover,
+.haik-navbar .navbar-brand:focus {
+  color: #63CFD3;
 }
 
-a:hover,
-a:focus {
-    color: #eb3812;
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+  color: #BABABA;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    /*font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;*/
+.haik-navbar .nav > li > a:hover,
+.haik-navbar .nav > li > a:focus:hover {
+    color: #63CFD3;
 }
 
-p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.bg-primary {
-    background-color: #f05f40;
-}
-
-.bg-dark {
-    color: #fff;
-    background-color: #222;
-}
-
-.text-faded {
-    color: rgba(255,255,255,.7);
-}
-
-section {
-    padding: 100px 0;
-}
-
-aside {
-    padding: 50px 0;
-}
-
-.no-padding {
-    padding: 0;
-}
-
-.navbar-default {
-    border-color: rgba(34,34,34,.05);
-    /*font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;*/
-    background-color: #fff;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
-}
-
-.navbar-default .navbar-header .navbar-brand {
-    /*font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;*/
-    font-weight: 700;
-    color: #f05f40;
-}
-
-.navbar-default .navbar-header .navbar-brand:hover,
-.navbar-default .navbar-header .navbar-brand:focus {
-    color: #eb3812;
-}
-
-.navbar-default .nav > li>a,
-.navbar-default .nav>li>a:focus {
-    font-size: 13px;
-    font-weight: 700;
-    color: #222;
-}
-
-.navbar-default .nav > li>a:hover,
-.navbar-default .nav>li>a:focus:hover {
-    color: #f05f40;
-}
-
-.navbar-default .nav > li.active>a,
-.navbar-default .nav>li.active>a:focus {
-    color: #f05f40!important;
-    background-color: transparent;
-}
-
-.navbar-default .nav > li.active>a:hover,
-.navbar-default .nav>li.active>a:focus:hover {
-    background-color: transparent;
-}
-
-@media(min-width:768px) {
-    .navbar-default {
-        border-color: rgba(255,255,255,.3);
-        background-color: transparent;
-    }
-
-    .navbar-default .navbar-header .navbar-brand {
-        color: rgba(255,255,255,.7);
-    }
-
-    .navbar-default .navbar-header .navbar-brand:hover,
-    .navbar-default .navbar-header .navbar-brand:focus {
-        color: #fff;
-    }
-
-    .navbar-default .nav > li>a,
-    .navbar-default .nav>li>a:focus {
-        color: rgba(255,255,255,.7);
-    }
-
-    .navbar-default .nav > li>a:hover,
-    .navbar-default .nav>li>a:focus:hover {
-        color: #fff;
-    }
-
-    .navbar-default.affix {
-        border-color: rgba(34,34,34,.05);
-        background-color: #fff;
-    }
-
-    .navbar-default.affix .navbar-header .navbar-brand {
-        font-size: 14px;
-        color: #f05f40;
-    }
-
-    .navbar-default.affix .navbar-header .navbar-brand:hover,
-    .navbar-default.affix .navbar-header .navbar-brand:focus {
-        color: #eb3812;
-    }
-
-    .navbar-default.affix .nav > li>a,
-    .navbar-default.affix .nav>li>a:focus {
-        color: #222;
-    }
-
-    .navbar-default.affix .nav > li>a:hover,
-    .navbar-default.affix .nav>li>a:focus:hover {
-        color: #f05f40;
-    }
-}
-
-header {
+.haik-header {
     position: relative;
     width: 100%;
     min-height: 100%;
     text-align: center;
-    color: #fff;
-    background-color: #666;
-    background-position: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    display: table;
 }
 
-header .header-content {
+.haik-content {
     position: relative;
     width: 100%;
     padding: 100px 15px;
     text-align: center;
+    display: table-cell;
+    vertical-align: middle;
 }
 
-header .header-content .header-content-inner h1 {
+
+.haik-content-inner h1 {
     margin-top: 0;
-    margin-bottom: 0;
-    font-weight: 700;
+    margin-bottom: 40px;
+    font-weight: 100;
+    font-size: 18px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    padding-right: 80px;
+    display: inline-block;
+    width: auto;
+    border-bottom: 1px solid #efefef;
 }
 
-header .header-content .header-content-inner hr {
-    margin: 30px auto;
+.haik-content-inner h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #63CFD3;
+    letter-spacing: .5px;
 }
 
-header .header-content .header-content-inner p {
-    margin-bottom: 50px;
-    font-size: 16px;
-    font-weight: 300;
-    color: rgba(255,255,255,.7);
+.haik-content-inner hr {
+  margin: 30px auto;
 }
 
-header .alert {
-  text-align: left;
-  margin: 15px auto 30px;
-  line-height: 1.8em;
+.haik-content-inner p {
+  margin-bottom: 50px;
+  line-height: 1.5em;
+  font-size: 16px;
+  font-weight: 300;
 }
 
-header .alert code {
-  color: inherit;
-  font-weight: bold;
+.haik-content-inner .btn-primary {
+  background-color: #63CFD3;
+  border-color: #63CFD3;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-header .progress-container {
-  margin: 30px auto auto;
+.haik-content-inner .btn-primary.disabled,
+.haik-content-inner .btn-primary[disabled] {
+  background-color: #63CFC3;
+  border-color: #63CFC3;
+}
+
+.haik-content-inner .btn-primary:hover {
+  background-color: #53BFC3;
+  border-color: #63CFD3;
+}
+
+.haik-progress {
+  margin: 30px auto 30px;
   visibility: hidden;
 }
 
-@media(min-width:768px) {
-    header .header-content {
-        position: absolute;
-        top: 50%;
-        padding: 0 50px;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-
-    header .header-content .header-content-inner {
-        margin-right: auto;
-        margin-left: auto;
-        max-width: 1000px;
-    }
-
-    header .header-content .header-content-inner p {
-        margin-right: auto;
-        margin-left: auto;
-        max-width: 80%;
-        font-size: 18px;
-    }
-
-    header .alert {
-      width: 50%;
-    }
-
-    header .progress-container {
-      width: 50%;
-    }
-}
-
-.btn-default {
-    border-color: #fff;
-    color: #222;
-    background-color: #fff;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
-}
-
-.btn-default:hover,
-.btn-default:focus,
-.btn-default.focus,
-.btn-default:active,
-.btn-default.active,
-.open > .dropdown-toggle.btn-default {
-    border-color: #ededed;
-    color: #222;
-    background-color: #f2f2f2;
-}
-
-.btn-default:active,
-.btn-default.active,
-.open > .dropdown-toggle.btn-default {
-    background-image: none;
-}
-
-.btn-default.disabled,
-.btn-default[disabled],
-fieldset[disabled] .btn-default,
-.btn-default.disabled:hover,
-.btn-default[disabled]:hover,
-fieldset[disabled] .btn-default:hover,
-.btn-default.disabled:focus,
-.btn-default[disabled]:focus,
-fieldset[disabled] .btn-default:focus,
-.btn-default.disabled.focus,
-.btn-default[disabled].focus,
-fieldset[disabled] .btn-default.focus,
-.btn-default.disabled:active,
-.btn-default[disabled]:active,
-fieldset[disabled] .btn-default:active,
-.btn-default.disabled.active,
-.btn-default[disabled].active,
-fieldset[disabled] .btn-default.active {
-    border-color: #fff;
-    background-color: #fff;
-}
-
-.btn-default .badge {
-    color: #fff;
-    background-color: #222;
-}
-
-.btn-primary {
-    border-color: #f05f40;
-    color: #fff;
-    background-color: #f05f40;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
-}
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary.focus,
-.btn-primary:active,
-.btn-primary.active,
-.open > .dropdown-toggle.btn-primary {
-    border-color: #ed431f;
-    color: #fff;
-    background-color: #ee4b28;
-}
-
-.btn-primary:active,
-.btn-primary.active,
-.open > .dropdown-toggle.btn-primary {
-    background-image: none;
-}
-
-.btn-primary.disabled,
-.btn-primary[disabled],
-fieldset[disabled] .btn-primary,
-.btn-primary.disabled:hover,
-.btn-primary[disabled]:hover,
-fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus,
-.btn-primary[disabled]:focus,
-fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled.focus,
-.btn-primary[disabled].focus,
-fieldset[disabled] .btn-primary.focus,
-.btn-primary.disabled:active,
-.btn-primary[disabled]:active,
-fieldset[disabled] .btn-primary:active,
-.btn-primary.disabled.active,
-.btn-primary[disabled].active,
-fieldset[disabled] .btn-primary.active {
-    border-color: #f05f40;
-    background-color: #f05f40;
-}
-
-.btn-primary .badge {
-    color: #f05f40;
-    background-color: #fff;
-}
-
-.btn {
-    border: 0;
-    border-radius: 300px;
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-    font-weight: 700;
-}
-
-.btn-xl {
-    padding: 15px 30px;
-}
-
-::-moz-selection {
-    text-shadow: none;
-    color: #fff;
-    background: #222;
-}
-
-::selection {
-    text-shadow: none;
-    color: #fff;
-    background: #222;
-}
-
-img::selection {
-    color: #fff;
-    background: 0 0;
-}
-
-img::-moz-selection {
-    color: #fff;
-    background: 0 0;
-}
-
-body {
-    webkit-tap-highlight-color: #222;
+.haik-install-url {
+  background-color: transparent;
+  border-bottom: 1px solid #efefef;
+  color: #8b8b8b;
 }
