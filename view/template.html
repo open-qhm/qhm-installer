@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>インストーラー - haik: QHM v6</title>
+    <title>インストーラー - QHM v6 haik</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -29,7 +29,7 @@
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top haik-navbar">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
-      <a class="navbar-brand" href="<?php echo h($location)?>">haik</a>
+      <a class="navbar-brand" href="<?php echo h($location)?>">QHM</a>
       <ul class="nav navbar-nav pull-right">
         <li>
           <a href="http://www.open-qhm.net/" target="_blank">Tutorial</a>
@@ -44,17 +44,17 @@
         <div class="haik-content-inner">
           <div class="row">
             <div class="col-sm-offset-2 col-sm-8">
-              <h1>haik インストーラー</h1>
-              <h2>haik をインストールします</h2>
+              <h1>QHM インストーラー</h1>
+              <h2>QHM v6 haik をインストールします</h2>
               <p>
                 インストールを開始するをクリックすると、<br>
-                haik を <code class="haik-install-url"><?php echo h($env['path']) ?></code> にインストールします
+                QHMを <code class="haik-install-url"><?php echo h($env['path']) ?></code> にインストールします
               </p>
               <?php if ($env['enable']): ?>
                 <?php if ($env['warning']): ?>
                   <?php if ($env['has_static_site']): ?>
                     <div class="alert alert-warning">
-                      <i class="fa fa-exclamation-triangle"></i> 
+                      <i class="fa fa-exclamation-triangle"></i>
                       <code>index.html</code> ファイルが存在します。<br>
                       <br>
                       不要なファイルであれば削除、<br>
@@ -64,7 +64,7 @@
                 <?php endif ?>
                 <div>
                   <button type="button" id="install" class="btn btn-primary btn-lg block center-block">インストールを開始する</button>
-                  <small>( haik : QHM v6 )</small>
+                  <small>( QHM v6 haik )</small>
                 </div>
 
                 <div class="progress-container haik-progress" id="progress">
