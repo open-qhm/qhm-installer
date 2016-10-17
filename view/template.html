@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>インストーラー - QHM v6 haik</title>
+    <title>インストーラー - HAIK</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -29,12 +29,7 @@
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top haik-navbar">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
-      <a class="navbar-brand" href="<?php echo h($location)?>">QHM</a>
-      <ul class="nav navbar-nav pull-right">
-        <li>
-          <a href="http://www.open-qhm.net/" target="_blank">Tutorial</a>
-        </li>
-      </ul>
+      <a class="navbar-brand" href="<?php echo h($location)?>">HAIK</a>
     </div>
     <!-- /.container-fluid -->
   </nav>
@@ -44,11 +39,11 @@
         <div class="haik-content-inner">
           <div class="row">
             <div class="col-sm-offset-2 col-sm-8">
-              <h1>QHM インストーラー</h1>
-              <h2>QHM v6 haik をインストールします</h2>
+              <h1>HAIK インストーラー</h1>
+              <h2>HAIK をインストールします</h2>
               <p>
                 インストールを開始するをクリックすると、<br>
-                QHMを <code class="haik-install-url"><?php echo h($env['path']) ?></code> にインストールします
+                HAIKを <code class="haik-install-url"><?php echo h($env['path']) ?></code> にインストールします
               </p>
               <?php if ($env['enable']): ?>
                 <?php if ($env['warning']): ?>
@@ -64,7 +59,7 @@
                 <?php endif ?>
                 <div>
                   <button type="button" id="install" class="btn btn-primary btn-lg block center-block">インストールを開始する</button>
-                  <small>( QHM v6 haik )</small>
+                  <small>( HAIK )</small>
                 </div>
 
                 <div class="progress-container haik-progress" id="progress">
@@ -94,7 +89,7 @@
                 </div>
                 <div>
                   <button type="button" class="btn btn-primary btn-lg disabled center-block">インストールできません</button>
-                  <small>( haik : QHM v6 )</small>
+                  <small>( HAIK )</small>
                 <div>
               <?php endif ?>
             </div>
